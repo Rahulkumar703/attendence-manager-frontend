@@ -1,13 +1,61 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --dark-hover: #bbbbbb;
+  --light-hover: #e5e5e5;
+  --primary: #c17bff;
+  --icon-size: 3rem;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+
+body {
+  --bg-color: #ffffff;
+  --bg-dark-color: #f3f3f3;
+  --bg-darker-color: #f6f6f6;
+  --bg-darkest-color: #f9f9f9;
+  --text-color: #000000;
+
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: var(--text-color);
+  background: var(--bg-color);
+}
+
+
+body.dark {
+  --bg-color: #292929;
+  --bg-dark-color: #262626;
+  --bg-darker-color: #232323;
+  --bg-darkest-color: #202020;
+  --text-color: #ffffff;
+}
+
+
+
+
+
+
+
+/* predefined clas */
+.icon {
+  display: grid;
+  place-items: center;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: .5rem;
 }
