@@ -1,0 +1,180 @@
+.students-section .section-body {
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.section-body .body-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: -1.2rem;
+    background: var(--bg-color);
+    z-index: 3;
+    gap: 1rem;
+    padding: 2rem 0;
+    padding-right: 1rem;
+    transition: .3s ease;
+    margin-left: -1rem;
+}
+
+.body-top .searchbar {
+    position: relative;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+
+.body-top .searchbar input {
+    width: 100%;
+    padding: 1.5rem;
+    padding-left: 5.5rem;
+    border: none;
+    outline-color: var(--primary);
+    font-size: 1.6rem;
+    color: var(--muted-text-color);
+    background: transparent;
+    transition: .3s ease;
+}
+
+/* .body-top .searchbar input:focus {} */
+
+.body-top .searchbar input:focus~.icon {
+    color: var(--primary);
+}
+
+.body-top .searchbar .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5rem;
+    font-size: 2rem;
+    color: var(--muted-text-color);
+}
+
+.body-top .add-student-pop-up-button {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    min-width: 20rem;
+    background: var(--primary-tint);
+    color: var(--white);
+    color: var(--primary);
+    font-size: 1.5rem;
+    transition: .3s ease;
+}
+
+.add-student-pop-up-button .icon {
+    width: 4rem;
+    height: 4rem;
+    margin-top: 2px;
+}
+
+
+
+
+.section-body .students-container {
+    padding-right: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    grid-auto-rows: 20rem;
+    gap: 2rem;
+    position: relative;
+    align-items: flex-start;
+    min-height: 100%;
+}
+
+.section-body .addStudent-form-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    margin-right: 1rem;
+    backdrop-filter: blur(20px);
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.addStudent-form-container form {
+    background: var(--bg-color);
+    min-width: 30rem;
+    max-width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    border-radius: .5rem;
+    gap: 2rem;
+
+}
+
+.addStudent-form-container form .input-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+.addStudent-form-container form .input-container input {
+    padding: 1.5rem;
+    width: 100%;
+    font-size: 1.6rem;
+}
+
+.addStudent-form-container form .input-container select {
+    padding: 1.5rem;
+    width: 100%;
+    font-size: 1.6rem;
+    accent-color: var(--primary);
+}
+
+.addStudent-form-container form .input-container input[type="checkbox"] {
+    padding: 1rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: .5rem;
+}
+
+.addStudent-form-container form .input-container label {
+    font-size: 1.6rem;
+    font-weight: 600;
+    cursor: pointer;
+    flex: 1;
+}
+
+.addStudent-form-container form .form-buttons {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.form-buttons button {
+    flex: 1;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+}
+
+
+
+@media screen and (max-width:600px) {
+    .body-top .add-student-pop-up-button .label {
+        display: none;
+    }
+
+    .body-top .add-student-pop-up-button {
+        min-width: 5rem;
+    }
+}

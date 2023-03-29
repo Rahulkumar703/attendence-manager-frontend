@@ -1,0 +1,41 @@
+.student-card {
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 1rem;
+    height: 100%;
+}
+
+.student-card .card-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.student-card .card-heading .student-name {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.student-card .card-heading .student-batch {
+    font-weight: 700;
+}
+
+.student-card .card-body {
+    padding: 1rem;
+    border-radius: .5rem;
+    color: var(--muted-text-color);
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.card-body .card-body-details {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.8rem;
+    padding: .5rem;
+}

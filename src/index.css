@@ -1,16 +1,21 @@
+@import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
+
 :root {
   --black: #000000;
   --white: #ffffff;
-  --dark-hover: #bbbbbb;
-  --light-hover: #e5e5e5;
-  --primary: #c17bff;
-  --icon-size: 3rem;
+  --primary: hsl(262, 80%, 60%);
+  --primary-gradient-color: hsl(262, 80%, 60%), hsl(262, 81%, 71%);
+  --primary-gradient: linear-gradient(-85deg, var(--primary-gradient-color));
+  --success: hsl(135, 80%, 60%);
+  --danger: hsl(10, 80%, 60%);
+  --warning: hsl(45, 80%, 60%);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  outline-color: var(--primary);
 }
 
 html {
@@ -19,43 +24,158 @@ html {
 
 
 body {
-  --bg-color: #ffffff;
-  --bg-dark-color: #f3f3f3;
-  --bg-darker-color: #f6f6f6;
-  --bg-darkest-color: #f9f9f9;
-  --text-color: #000000;
+  --bg-color: #f5f8ff;
+  --text-color: #101010;
+  --sub-text-color: #3e3e3e;
+  --muted-text-color: #888888;
+  --hover-bg: #10101010;
+  --primary-tint: hsl(263, 83%, 91%);
+  --success-tint: hsl(135, 100%, 95%);
+  --warning-tint: hsl(45, 100%, 95%);
+  --danger-tint: hsl(10, 100%, 95%);
 
-  margin: 0;
+
+  --morph-dark-shadow: #00000033;
+  --morph-light-shadow: #fffffff2;
+
+  margin: 0 auto;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
-  color: var(--text-color);
+  color: var(--sub-text-color);
   background: var(--bg-color);
+  height: 100vh;
+  overflow: hidden;
 }
 
 
 body.dark {
-  --bg-color: #292929;
-  --bg-dark-color: #262626;
-  --bg-darker-color: #232323;
-  --bg-darkest-color: #202020;
+  --primary-tint: hsl(263, 35%, 35%);
+  --success-tint: hsl(135, 35%, 35%);
+  --warning-tint: hsl(45, 35%, 35%);
+  --danger-tint: hsl(10, 35%, 35%);
+  --bg-color: #18191b;
+  --bg-dark-color: #292a2f;
   --text-color: #ffffff;
+  --sub-text-color: #dadada;
+  --muted-text-color: #8a8a8a;
+  --hover-bg: #ffffff10;
+
+  --morph-dark-shadow: #000000be;
+  --morph-light-shadow: #7171713c;
 }
 
 
 
 
 
+/* Default properties for tags */
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.8rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-color);
+}
 
 
-/* predefined clas */
-.icon {
-  display: grid;
-  place-items: center;
+a {
+  color: var(--sub-text-color);
+  text-decoration: none;
+}
+
+button:active,
+input:active {
+  box-shadow: 2px 2px 1px var(--morph-dark-shadow),
+    -2px -2px 1px var(--morph-light-shadow),
+    inset 2px 2px 1px var(--morph-dark-shadow),
+    inset -2px -2px 1px var(--morph-light-shadow);
+}
+
+button,
+input,
+select,
+textarea {
+  box-shadow: 2px 2px 1px var(--morph-dark-shadow),
+    2px 2px 1px var(--morph-light-shadow),
+    inset 2px 2px 1px var(--morph-light-shadow),
+    inset 2px 2px 1px var(--morph-dark-shadow);
+  text-shadow: 1px 1px var(--morph-dark-shadow),
+    -1px -1px var(--morph-light-shadow);
+  border-radius: 1rem;
+  border: none;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+option:disabled {
+  color: var(--muted-text-color);
+}
+
+input::-webkit-inner-spin-button {
+  display: none;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  width: 2rem;
+  height: 2rem;
+  accent-color: var(--primary);
+  cursor: pointer;
+  transition: .1s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+input[type="checkbox"]:checked {
+  box-shadow:
+    -2px -2px 1px var(--morph-light-shadow),
+    inset -2px -2px 1px var(--morph-light-shadow),
+    inset 2px 2px 1px var(--morph-dark-shadow);
+
+}
+
+input[type="checkbox"]:checked::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  left: 0;
+  top: 0;
+  background: var(--primary);
+  box-shadow: 2px 2px 1px var(--morph-dark-shadow),
+    -2px -2px 1px var(--morph-dark-shadow),
+    inset -2px -2px 1px var(--morph-dark-shadow),
+    inset 2px 2px 1px var(--morph-dark-shadow);
+  border-radius: .5rem;
 }
 
 button {
-  background: none;
-  border: none;
   cursor: pointer;
-  padding: .5rem;
+  border: 1px solid var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+*::selection {
+  background: var(--primary-tint);
+  color: var(--primary);
 }

@@ -1,0 +1,10 @@
+.footer {
+    align-self: center;
+    padding: .5rem;
+}
+
+
+.footer h5 {
+    font-size: 1.3rem;
+    color: var(--muted-text-color);
+}

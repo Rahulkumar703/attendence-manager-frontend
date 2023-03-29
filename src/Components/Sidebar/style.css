@@ -1,0 +1,129 @@
+.sidebar {
+    height: 100%;
+    width: 20%;
+    min-width: 30rem;
+    transition: .3s ease;
+}
+
+.sidebar.closed {
+    width: 6rem;
+    min-width: 6rem;
+}
+
+.sidebar .sidelist {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    overflow: hidden;
+}
+
+.sidelist .sidelist-items {
+    display: flex;
+    font-size: 2rem;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2rem;
+    position: relative;
+    transition: .3s ease;
+    border-radius: 1rem;
+}
+
+.sidelist-items .sidebar-toggle-button {
+    transition: .3s ease;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: .3rem;
+    background: transparent;
+    box-shadow: none;
+}
+
+
+.sidebar-toggle-button .icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.sidebar-toggle-button .icon span {
+    display: block;
+    width: 100%;
+    height: .5rem;
+    background: var(--primary);
+    transform-origin: 100% center;
+    transition: .3s ease;
+    border-radius: .5rem;
+    flex-shrink: 0;
+}
+
+.sidebar-toggle-button .icon span:first-child {
+    transform: rotate(-40deg) translateY(-150%);
+}
+
+.sidebar-toggle-button .icon span:last-child {
+    transform: rotate(40deg) translateY(150%);
+
+}
+
+
+.sidebar.closed .sidelist-items .sidebar-toggle-button .icon span {
+    transform: rotate(0) translateY(0);
+    background: var(--sub-text-color);
+}
+
+
+.sidebar.closed .sidelist-items.active::before {
+    opacity: 0;
+}
+
+.sidebar.closed .sidelist-items.active {
+    padding-left: 0;
+}
+
+
+.sidelist-items .icon {
+    width: 4rem;
+    height: 4rem;
+    flex-shrink: 0;
+}
+
+.sidelist-items .text {
+    pointer-events: none;
+}
+
+
+.sidelist-items a {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: .1s ease;
+    overflow: hidden;
+    padding: 1rem 0;
+    color: inherit;
+}
+
+
+.sidelist-items.active {
+    color: var(--primary);
+    background: var(--primary-tint);
+    box-shadow: 2px 2px 2px var(--morph-dark-shadow),
+        -2px -2px 2px var(--morph-light-shadow),
+        inset 2px 2px 2px var(--morph-dark-shadow),
+        inset -2px -2px 2px var(--morph-light-shadow);
+}
+
+
+.sidelist-items:hover {
+    background: var(--hover-bg);
+    text-shadow: 1px 1px var(--morph-dark-shadow), -1px -1px var(--morph-light-shadow);
+}
+
+
+
+.sidelist-items:first-child:hover {
+    background: none;
+}

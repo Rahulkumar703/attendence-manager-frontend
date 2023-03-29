@@ -1,29 +1,29 @@
-import React, { useContext } from 'react'
-import Navbar from './Navbar'
 import './style.css'
-import GlobalContext from '../../Contexts/GlobalContext';
-import { CgClose, CgMenu } from 'react-icons/cg'
 
 
 export default function Header() {
 
-    const { globalState, dispatch } = useContext(GlobalContext);
+
+    const changeTheme = (e) => {
+        if (e.target.checked) {
+            document.body.classList.add('dark')
+        }
+        else document.body.classList.remove('dark')
+    }
 
     return (
-        <>
-            <header className='header'>
-                <div className="header_toggle_button">
-                    <button aria-expanded={globalState.isHamburgerActive} className="hamburger" onClick={() => { dispatch({ type: 'TOGGLE_HAMBURGER' }) }} >
-                        <div className="icon">
-                            {globalState.isHamburgerActive ? < CgClose size={20} color={'white'} /> : <CgMenu size={20} />}
-                        </div>
-                    </button>
+        <header className='header'>
+            <div className="header_heading">
+                <div className="logo">
+                    <img src="/Assets/logo.png" alt="logo" />
                 </div>
-                <div className="header_heading">
+                <div className="title">
                     <h1>Attendence Manager</h1>
                 </div>
-            </header>
-            {globalState.isHamburgerActive ? <Navbar /> : null}
-        </>
+            </div>
+            <div className="theme">
+                <input type="checkbox" onChange={changeTheme} />
+            </div>
+        </header>
     )
 }

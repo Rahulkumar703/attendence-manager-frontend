@@ -2,3 +2,144 @@
   display: flex;
   flex-direction: column;
 }
+
+.app .main-content {
+  flex: 1;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  height: calc(100vh - 9rem);
+  overflow: hidden;
+  gap: 1rem;
+  padding-right: 0;
+
+}
+
+.page .page-heading {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 2.5rem;
+  padding: 1rem;
+}
+
+.page-heading .label h2 {
+  padding: 0 1rem;
+  position: sticky;
+  top: 0;
+  color: var(--primary);
+}
+
+.page-heading .icon {
+  top: 0;
+  color: var(--primary);
+  padding-top: .2rem;
+}
+
+.page .page-content {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  flex: 1;
+}
+
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+}
+
+.section .section-heading {
+  padding: 1rem;
+}
+
+.section .section-body {
+  padding: 1rem;
+  height: calc(100vh - 22.5rem);
+  overflow-y: auto;
+}
+
+
+/* predefined classes */
+
+.icon {
+  display: grid;
+  place-items: center;
+  user-select: none;
+  pointer-events: none;
+  transition: .1s ease;
+}
+
+.icon i {
+  display: grid;
+  place-items: center;
+  user-select: none;
+  pointer-events: none;
+  transition: .1s ease;
+}
+
+.primary {
+  color: var(--primary);
+  background: var(--primary-tint);
+}
+
+.success {
+  color: var(--success);
+  background: var(--success-tint);
+}
+
+.warning {
+  color: var(--warning);
+  background: var(--warning-tint);
+}
+
+.danger {
+  color: var(--danger);
+  background: var(--danger-tint);
+}
+
+.message-box {
+  background: inherit;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+
+
+.morph-l {
+  box-shadow: 6px 6px 16px var(--morph-dark-shadow),
+    -6px -6px 16px var(--morph-light-shadow),
+    inset 6px 6px 16px var(--morph-dark-shadow),
+    inset -6px -6px 16px var(--morph-light-shadow);
+  border-radius: 2rem;
+}
+
+
+.morph-m {
+  box-shadow: 4px 4px 10px var(--morph-dark-shadow),
+    -4px -4px 10px var(--morph-light-shadow),
+    inset 4px 4px 10px var(--morph-dark-shadow),
+    inset -4px -4px 10px var(--morph-light-shadow);
+  text-shadow: 2px 2px var(--morph-dark-shadow),
+    -2px -2px var(--morph-light-shadow);
+  border-radius: 1rem;
+}
+
+
+
+.morph-s {
+  box-shadow: 2px 2px 5px var(--morph-dark-shadow),
+    -2px -2px 5px var(--morph-light-shadow),
+    inset 2px 2px 5px var(--morph-dark-shadow),
+    inset -2px -2px 5px var(--morph-light-shadow);
+  text-shadow: 1px 1px var(--morph-dark-shadow),
+    -1px -1px var(--morph-light-shadow);
+  border-radius: 1rem;
+}
