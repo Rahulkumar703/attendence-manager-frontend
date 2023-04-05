@@ -43,8 +43,6 @@ body {
   -webkit-font-smoothing: antialiased;
   color: var(--sub-text-color);
   background: var(--bg-color);
-  height: 100vh;
-  overflow: hidden;
 }
 
 
@@ -163,7 +161,7 @@ input[type="checkbox"]:checked::before {
     -2px -2px 1px var(--morph-dark-shadow),
     inset -2px -2px 1px var(--morph-dark-shadow),
     inset 2px 2px 1px var(--morph-dark-shadow);
-  border-radius: .5rem;
+  border-radius: inherit;
 }
 
 button {

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './style.css'
 function Sidebar() {
-    const [isSidebarClosed, setIsSidebarClosed] = useState(false);
+    const [isSidebarClosed, setIsSidebarClosed] = useState(true);
     const [activeTab, setActiveTab] = useState('');
 
     useEffect(() => {
@@ -15,7 +15,7 @@ function Sidebar() {
     }
 
     return (
-        <aside className={`sidebar ${isSidebarClosed ? 'closed' : 'morph-l'}`}>
+        <aside className={`sidebar ${isSidebarClosed ? 'closed' : ''}`}>
             <ul className="sidelist ">
                 <li className="sidelist-items">
                     <button type="button" title="Sidebar Toggle Button" className="sidebar-toggle-button " onClick={() => setIsSidebarClosed(!isSidebarClosed)}>

@@ -9,6 +9,7 @@ export default function Students() {
 
 
     const [searchQuery, setSearchQuery] = useState('');
+    const [studentFilter, setStudentFilter] = useState({ isLE: '' });
     const [error, setError] = useState({ message: '', type: '' });
     const [addStudentPopUp, setAddStudentPopUp] = useState(false);
     const [student, setStudent] = useState(
@@ -45,13 +46,16 @@ export default function Students() {
 
                 const year = new Date().getFullYear().toString();
                 let batch = Number(year[0] + year[1] + student.rollno.toString()[0] + student.rollno.toString()[1]);
+                if (student.isLE)
+                    batch -= 1;
 
                 setError({ message: '', type: 'warning' })
                 setStudent({ ...student, batch, phone: Number(student.phone), rollno: Number(student.rollno) });
                 try {
                     const { data } = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/student`, student);
-                    if (data)
+                    if (data) {
                         setError({ message: 'Added Successfully', type: 'success' });
+                    }
                 } catch (error) {
                     setError({ message: error.response.data.message, type: 'danger' });
                 }
@@ -67,8 +71,6 @@ export default function Students() {
     }
 
 
-
-
     const students = useGetRequest(`${process.env.REACT_APP_BACKEND_URL}/students`);
 
     return (
@@ -78,26 +80,34 @@ export default function Students() {
             </div>
             <div className="section-body">
                 <div className="body-top">
-                    <div className="searchbar">
-                        <input type="text"
-                            autoComplete="off"
-                            autoFocus="on"
-                            value={searchQuery}
-                            onChange={(e) => { setSearchQuery(e.target.value) }}
-                            placeholder="Search for a student"
-                        />
-                        <div className="icon">
-                            <i className="fi fi-br-search"></i>
+                    <div className="search-box">
+                        <div className="searchbar">
+                            <input type="text"
+                                autoComplete="off"
+                                autoFocus="on"
+                                value={searchQuery}
+                                onChange={(e) => { setSearchQuery(e.target.value) }}
+                                placeholder="Search for a student"
+                            />
+                            <div className="icon">
+                                <i className="fi fi-br-search"></i>
+                            </div>
+                        </div>
+                        <button className="add-student-pop-up-button" onClick={() => setAddStudentPopUp(!addStudentPopUp)}>
+                            <div className="icon">
+                                <i className="fi fi-br-user-add"></i>
+                            </div>
+                            <div className="label">Add new student</div>
+                        </button>
+                    </div>
+
+                    <div className="students-filter">
+                        <div className="filters morph-s">
+                            <input type="checkbox" onClick={(e) => setStudentFilter({ ...studentFilter, isLE: e.target.checked })} id="le-filter" />
+                            <label htmlFor="le-filter">Lateral Entry</label>
                         </div>
                     </div>
-                    <button className="add-student-pop-up-button" onClick={() => setAddStudentPopUp(!addStudentPopUp)}>
-                        <div className="icon">
-                            <i className="fi fi-br-user-add"></i>
-                        </div>
-                        <div className="label">Add new student</div>
-                    </button>
                 </div>
-
 
 
                 {
@@ -146,12 +156,15 @@ export default function Students() {
 
                 <div className="students-stats"></div>
 
-
-
                 <div className="students-container">
                     {
                         students ?
                             students
+                                .filter((student) => {
+                                    if (studentFilter.isLE)
+                                        return student.isLE
+                                    else return true;
+                                })
                                 .filter((student) => {
                                     return (
                                         student?.name.toLocaleLowerCase().includes(searchQuery.toLocaleLowerCase()) ||

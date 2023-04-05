@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './style.css'
 
 
@@ -13,14 +14,14 @@ export default function Header() {
 
     return (
         <header className='header'>
-            <div className="header_heading">
+            <Link to='/' className="header_heading">
                 <div className="logo">
                     <img src="/Assets/logo.png" alt="logo" />
                 </div>
                 <div className="title">
                     <h1>Attendence Manager</h1>
                 </div>
-            </div>
+            </Link>
             <div className="theme">
                 <input type="checkbox" onChange={changeTheme} />
             </div>

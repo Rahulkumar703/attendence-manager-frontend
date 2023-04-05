@@ -12,6 +12,10 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<RootLayout />}>
       <Route index element={<Home />} />
+      <Route path=':branch' element={<Home />} />
+      <Route path=':branch/:batch' element={<Home />} />
+      <Route path=':branch/:batch/:id' element={<Student />} />
+
       <Route path='admin' element={<AdminLayout />} >
         <Route index element={<Dashboard />} />
         <Route path='students' element={<Students />} />

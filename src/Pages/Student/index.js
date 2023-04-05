@@ -1,14 +1,12 @@
-import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import Loader from '../../Components/Loader';
 import useGetRequest from '../../Hooks/useGetRequest';
 import './style.css'
+import StudentCard from '../../Components/StudentCard'
 export default function Student() {
 
-    const location = useLocation();
-    const student = useGetRequest(`${process.env.REACT_APP_BACKEND_URL}/student/${location.state}`);
-
-
+    const { id } = useParams();
+    const student = useGetRequest(`${process.env.REACT_APP_BACKEND_URL}/student/${id}`);
 
 
 
@@ -17,6 +15,9 @@ export default function Student() {
             <div className='page student-page'>
                 <div className="page-heading">
                     <h1>{student.name}</h1>
+                </div>
+                <div className="page-body">
+                    <StudentCard student={student} />
                 </div>
             </div>
             :

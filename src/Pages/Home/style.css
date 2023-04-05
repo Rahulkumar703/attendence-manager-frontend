@@ -1,0 +1,25 @@
+.home_page .page-body {
+    padding-right: 1rem;
+    gap: 1rem;
+}
+
+.home_page .page-body .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-auto-rows: 20rem;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.card-container .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    transition: .3s ease;
+}
+
+.card:hover {
+    background: var(--primary-tint);
+}

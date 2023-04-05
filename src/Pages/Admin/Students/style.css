@@ -6,18 +6,24 @@
 }
 
 .section-body .body-top {
+    width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
     position: sticky;
-    top: -1.2rem;
+    top: -1rem;
     background: var(--bg-color);
     z-index: 3;
     gap: 1rem;
-    padding: 2rem 0;
+    padding: .5rem 0;
     padding-right: 1rem;
     transition: .3s ease;
-    margin-left: -1rem;
+    margin-left: -.1rem;
+}
+
+.body-top .search-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .body-top .searchbar {
@@ -73,6 +79,22 @@
     margin-top: 2px;
 }
 
+.section-body .students-filter {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: .5rem;
+}
+
+.students-filter .filters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: .5rem;
+}
 
 
 
